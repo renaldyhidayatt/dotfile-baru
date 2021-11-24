@@ -21,6 +21,8 @@
 (package! dart-server)
 (package! jedi)
 
+; (package! neotree-toggle)
+
 
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
