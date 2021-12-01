@@ -5,7 +5,7 @@
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
+;; clients, file templates and snippetss
 (setq user-full-name "John Doe"
       user-mail-address "john@doe.com")
 
