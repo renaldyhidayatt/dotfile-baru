@@ -27,7 +27,11 @@
 ;; `load-theme' function. This is the default:
 ; (setq doom-theme 'doom-one)
 
-(setq doom-theme 'doom-dracula)
+
+
+
+
+(setq doom-theme 'doom-tomorrow-night)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -41,10 +45,30 @@
 (use-package lsp-ui :ensure t) ;; UI for LSP
 (use-package company :ensure t) ;; Auto-complete
 
+;; Wakatime
+(use-package wakatime-mode :ensure t)
 
-; (require 'lsp-python-ms)
-; (setq lsp-python-ms-auto-install-server t)
-; (add-hook 'python-mode-hook #'lsp) ; or lsp-deferred
+(global-wakatime-mode)
+
+
+
+(eval-after-load 'flycheck                                       
+  '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+
+
+(use-package flycheck-golangci-lint
+  :ensure t
+  :hook (go-mode . flycheck-golangci-lint-setup))
+
+
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(add-hook 'csharp-mode-hook #'flycheck-mode)
+(eval-after-load
+ 'company
+ '(add-to-list 'company-backends 'company-omnisharp))
+
+(add-hook 'csharp-mode-hook #'company-mode)
+
 
 
 (use-package lsp-pyright
@@ -52,6 +76,15 @@
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp))))  ; or lsp-deferred
+
+
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :init
+  (setq
+   pipenv-projectile-after-switch-function
+   #'pipenv-projectile-after-switch-extended))
+
 
 (setq lsp-gopls-staticcheck t)
 (setq lsp-eldoc-render-all t)

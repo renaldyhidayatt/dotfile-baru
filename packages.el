@@ -14,12 +14,19 @@
 (package! lsp-pyright)
 
 (package! lsp-python-ms)
+(package! pipenv)
+(package! flycheck-golangci-lint)
+
+(package! vterm)
+(package! omnisharp)
 
 (package! flutter)
 (package! flutter-l10n-flycheck)
 (package! dart-mode)
 (package! dart-server)
 (package! jedi)
+
+(package! neotree)
 
 ; (package! neotree-toggle)
 
