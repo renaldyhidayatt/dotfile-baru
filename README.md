@@ -1,3 +1,13 @@
+## Dotfile
+Untuk biar ga repot install ulang
+
+## Theme dan icon
+
+theme https://github.com/TheGreatMcPain/gruvbox-material-gtk
+
+
+
+
 ## Config My Doom emacs
 
 buat daily use flutter
