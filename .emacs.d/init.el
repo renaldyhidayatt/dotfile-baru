@@ -467,11 +467,51 @@
 
 (add-hook 'go-mode-hook #'lsp-deferred)
 
+(use-package js2-mode
+  :mode "\\.js\\'"
+  :interpreter "node")
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :commands (typescript-mode))
+
+(use-package rust-mode
+  :mode "\\.rs\\'"
+  :custom
+  (rust-format-on-save t)
+  :config
+  (use-package flycheck-rust
+    :after flycheck
+    :config
+    (with-eval-after-load 'rust-mode
+      (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
 
+(use-package emmet-mode
+  :hook ((web-mode . emmet-mode)
+         (css-mode . emmet-mode)))
+
+
+(use-package web-mode
+  :custom-face
+  (css-selector ((t (:inherit default :foreground "#66CCFF"))))
+  (font-lock-comment-face ((t (:foreground "#828282"))))
+  :mode
+  ("\\.phtml\\'" "\\.tpl\\.php\\'" "\\.[agj]sp\\'" "\\.as[cp]x\\'"
+   "\\.erb\\'" "\\.mustache\\'" "\\.djhtml\\'" "\\.[t]?html?\\'"))
+
+
+;; Formatting
+(use-package format-all)
+
+
+;;
 (use-package counsel
   :after ivy
   :config (counsel-mode))
+
+
+
 (use-package ivy
   :defer 0.1
   :diminish
@@ -484,6 +524,8 @@
   (setq enable-recursive-minibuffers t)
   :config
   (ivy-mode))
+
+
 (use-package ivy-rich
   :after ivy
   :custom
@@ -494,6 +536,8 @@
   (ivy-set-display-transformer 'ivy-switch-buffer
                                'ivy-rich-switch-buffer-transformer)
   (ivy-rich-mode 1)) ;; this gets us descriptions in M-x.
+
+
 (use-package swiper
   :after ivy
   :bind (("C-s" . swiper)
@@ -548,6 +592,8 @@
         ((eq electric-indent-mode nil) (electric-indent-mode 1))))
 (add-hook 'post-command-hook #'smart-electric-indent-mode)
 
+
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 
 
