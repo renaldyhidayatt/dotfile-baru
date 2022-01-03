@@ -34,7 +34,7 @@
 
 ;; Themes
 (use-package doom-themes
-:init (load-theme 'doom-gruvbox-light t))
+:init (load-theme 'doom-tokyo-night t))
 
 
 (use-package doom-modeline
@@ -100,7 +100,8 @@
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
 
-
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
 ;; Commenter
 (use-package evil-nerd-commenter)
 
@@ -148,8 +149,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(flycheck-rust rust-mode format-all web-mode emmet-mode typescript-mode js2-mode magit pipenv highlight-indent-guides projectile ivy-posframe python-mode company-box company lsp-ivy lsp-ui lsp-mode flycheck-popup-tip flycheck-posframe flycheck popup-kill-ring vterm neotree go-mode all-the-icons-dired peep-dired dired-open doom-themes use-package))
- '(wakatime-api-key ""))
+   '(tree-sitter-indent tree-sitter-langs tree-sitter flycheck-rust rust-mode format-all web-mode emmet-mode typescript-mode js2-mode magit pipenv highlight-indent-guides projectile ivy-posframe python-mode company-box company lsp-ivy lsp-ui lsp-mode flycheck-popup-tip flycheck-posframe flycheck popup-kill-ring vterm neotree go-mode all-the-icons-dired peep-dired dired-open doom-themes use-package))
+ '(wakatime-api-key "6343f998-d4dc-4c0b-9026-41525ded3208"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -372,7 +373,7 @@
   (lsp-keep-workspace-alive nil)
   (lsp-eldoc-hook nil)
   :bind (:map lsp-mode-map ("C-c C-f" . lsp-format-buffer))
-  :hook ((python-mode go-mode rust-mode js-mode js2-mode typescript-mode web-mode php-mode) . lsp-deferred)
+  :hook ((python-mode go-mode rust-mode js-mode js2-mode typescript-mode web-mode php-mode csharp-mode) . lsp-deferred)
   :config
   (defun lsp-update-server ()
     "Update LSP server."
@@ -427,9 +428,9 @@
   :after lsp-mode
   :hook (prog-mode . company-mode)
   :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
+         ("<RETURN>" . company-complete-selection))
         (:map lsp-mode-map
-         ("<tab>" . company-indent-or-complete-common))
+         ("<RETURN>" . company-indent-or-complete-common))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
@@ -451,6 +452,10 @@
   (flycheck-python-pycompile-executable "python")
   (python-shell-interpreter "python"))
 
+
+(use-package vue-mode
+  :mode "\\.vue\\"
+  :hook (vue-mode . lsp-deferred))
 
 
 (use-package go-mode
@@ -497,6 +502,14 @@
       (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
 
+(use-package tree-sitter :ensure t)
+(use-package tree-sitter-langs :ensure t)
+(use-package tree-sitter-indent :ensure t)
+
+(use-package csharp-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
 
 
 (use-package emmet-mode

@@ -25,6 +25,11 @@ Referensi https://github.com/niyumard/Doom-Emacs-Cheat-Sheet
     <img align="center" alt="preview" src="./Pictures/rengar.jpg" />
     <hr />
     <img align="center" alt="preview-emacs" src="./Pictures/4.png" />
-
+    <hr />
+    <img align="center" alt="preview-emacs" src="./Pictures/5.png" />
+    <hr />
+    <img align="center" alt="preview-emacs" src="./Pictures/6.png" />
+    <hr />
+    <img align="center" alt="preview-emacs" src="./Pictures/7.png" />
 
 </details>
