@@ -165,7 +165,7 @@
  '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
 
 
-(global-wakatime-mode)
+;;(global-wakatime-mode)
 
 ;; Directory
 (use-package all-the-icons-dired)
