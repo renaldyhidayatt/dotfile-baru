@@ -33,14 +33,19 @@
 
 
 ;; Themes
-(use-package doom-themes
-:init (load-theme 'doom-tokyo-night t))
+;; (use-package doom-themes
+;; :init (load-theme 'doom-tokyo-night t))
+(use-package jetbrains-darcula-theme
+  :config
+  (load-theme 'jetbrains-darcula t))
 
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
 :custom ((doom-modeline-height 15)))
 
+
+(use-package jetbrains-darcula-theme)
 
 (use-package general
   :config
@@ -150,7 +155,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(tree-sitter-indent tree-sitter-langs tree-sitter flycheck-rust rust-mode format-all web-mode emmet-mode typescript-mode js2-mode magit pipenv highlight-indent-guides projectile ivy-posframe python-mode company-box company lsp-ivy lsp-ui lsp-mode flycheck-popup-tip flycheck-posframe flycheck popup-kill-ring vterm neotree go-mode all-the-icons-dired peep-dired dired-open doom-themes use-package))
- '(wakatime-api-key "6343f998-d4dc-4c0b-9026-41525ded3208"))
+ '(wakatime-api-key ""))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -165,7 +170,7 @@
  '(lsp-ui-doc-header ((t (:inherit (font-lock-string-face italic))))))
 
 
-;;(global-wakatime-mode)
+;; (global-wakatime-mode)
 
 ;; Directory
 (use-package all-the-icons-dired)
@@ -453,6 +458,8 @@
   (python-shell-interpreter "python"))
 
 
+
+
 (use-package vue-mode
   :mode "\\.vue\\"
   :hook (vue-mode . lsp-deferred))
@@ -477,6 +484,9 @@
 
 (add-hook 'go-mode-hook #'lsp-deferred)
 
+(use-package ng2-mode)
+
+
 (use-package js2-mode
   :mode "\\.js\\'"
   :interpreter "node")
@@ -486,9 +496,9 @@
   :commands (typescript-mode))
 
 
-(use-package php-mode
-  :mode "\\.php\\'"
-  :commands (php-mode))
+;;(use-package php-mode
+;;  :mode "\\.php\\'"
+;;  :commands (php-mode))
 
 (use-package rust-mode
   :mode "\\.rs\\'"
@@ -505,11 +515,6 @@
 (use-package tree-sitter :ensure t)
 (use-package tree-sitter-langs :ensure t)
 (use-package tree-sitter-indent :ensure t)
-
-(use-package csharp-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
 
 
 (use-package emmet-mode
@@ -532,6 +537,7 @@
 (use-package counsel
   :after ivy
   :config (counsel-mode))
+  
 (use-package ivy
   :defer 0.1
   :diminish
