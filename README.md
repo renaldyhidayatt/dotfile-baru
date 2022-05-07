@@ -23,6 +23,8 @@ Referensi https://github.com/niyumard/Doom-Emacs-Cheat-Sheet
 <details>
     <img align="center" alt="preview" src="./Pictures/1.png" />
     <hr />
+    <img align="center" alt="preview-desktop" src="./Pictures/8.png" />
+    <hr />
     <img align="center" alt="preview-vscode" src="./Pictures/2.png" />
     <hr />
     <img align="center" alt="preview-emacs" src="./Pictures/5.png" />
