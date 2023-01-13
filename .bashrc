@@ -1,41 +1,27 @@
-export PATH="$PATH:/usr/bin/python"
-export ANDROID=$HOME/Android 
-export PATH=$ANDROID/cmdline-tools/tools:$PATH
-export PATH=$ANDROID/cmdline-tools/tools/bin:$PATH
-export PATH=$ANDROID/platform-tools:$PATH
-
-export ANDROID_SDK=$HOME/Android
-export PATH=$ANDROID_SDK:$PATH
-
-export FLUTTER=$ANDROID/flutter
-export PATH=$FLUTTER/bin:$PATH
-
+## Path Dart lang
 export DART_SDK=$HOME/Android/flutter/bin/cache/dart-sdk/bin/
 export PATH=$DART_SDK:$PATH
 
+## Path Flutter
+export FLUTTER_PATH=$HOME/Android/flutter
+export PATH=$FLUTTER_PATH/bin:$PATH
 
-export ANDROID_ROOT=$HOME/Android
-export PATH=$ANDROID_ROOT/cmdline-tools/tools:$PATH
-export PATH=$ANDROID_ROOT/cmdline-tools/tools/bin:$PATH
-export PATH=$ANDROID_ROOT/platform-tools:$PATH
-
-
+## package manager php
 export COMPOSER_HOME=$HOME/.config/composer/vendor
 export PATH=$COMPOSER_HOME/bin:$PATH
 
+## package manager rust
 export CARGO_HOME=$HOME/.cargo
 export PATH=$CARGO_HOME/bin:$PATH
 
-export GOROOT=/usr/local/go 
-export GOPATH=$HOME/go
-
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH 
-
+## Path Rust
 export RUST_SRC_PATH=/usr/lib/rustlib/src/rust/library
-export PATH=$RUST_SRC_PATH:$PATH
+export PATH=$RUST_SRC_PATH:$PATH 
 
+## Path BUN
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
 
-
+## Path golang
+export PATH="$PATH:$(go env GOPATH)/bin"
 export GO111MODULE=on
-
-export PATH="/home/holyraven/.deta/bin:$PATH"

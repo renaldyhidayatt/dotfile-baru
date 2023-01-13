@@ -1,0 +1,36 @@
+[ui]
+font-family = "Segoi UI"
+font-size = 14
+
+[core]
+color-theme = "Aura Dark"
+icon-theme = "Material Icons"
+modal = false
+custom-titlebar = true
+
+[lapce-rust]
+serverPath = ""
+
+[terminal]
+font-family = "Jetbrains Mono"
+font-size = 14
+
+[editor]
+format-on-save = true
+font-family = "Jetbrains Mono"
+font-size = 14
+
+[tool.pyright]
+reportMissingImports = true
+reportMissingTypeStubs = false
+typeCheckingMode = "off"
+
+[lapce-java]
+lombok = true
+"volt.serverPath" = "/home/holyraven/.local/share/nvim/mason/bin/jdtls"
+
+[lapce-typescript]
+"volt.serverPath" = "/usr/lib/node_modules/typescript-language-server/lib/cli.js"
+serverPath = "/usr/lib/node_modules/typescript-language-server/lib/cli.js"
+serverArgs = ["--stdio"]
+
