@@ -11,5 +11,6 @@ theme https://github.com/TheGreatMcPain/gruvbox-material-gtk
 <details>
     <img align="center" alt="preview" src="./Pictures/1.png" />
     <img align="center" alt="preview" src="./Pictures/2.png" />
+    <img align="center" alt="preview" src="./Pictures/3.png" />
     
 </details>
